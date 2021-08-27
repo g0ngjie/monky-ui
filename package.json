@@ -2,12 +2,12 @@
   "name": "monky-ui",
   "version": "1.0.0",
   "description": "油猴UI",
-  "main": "lib/index.js",
+  "main": "lib/monky.js",
   "scripts": {
     "watch": "rollup -w -c --environment FORMAT:umd",
     "build:umd": "rollup -c --environment FORMAT:umd",
     "build:min": "rollup -c --environment FORMAT:min",
-    "build": "run-p build:umd build:min"
+    "build": "rm -rf lib/* && run-p build:umd build:min"
   },
   "keywords": [
     "monky-ui",
