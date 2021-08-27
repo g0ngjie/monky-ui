@@ -2,7 +2,7 @@
   "name": "monky-ui",
   "version": "1.0.0",
   "description": "油猴UI",
-  "main": "lib/monky.js",
+  "main": "lib/monky.umd.js",
   "scripts": {
     "watch": "rollup -w -c --environment FORMAT:umd",
     "build:umd": "rollup -c --environment FORMAT:umd",

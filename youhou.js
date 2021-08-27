@@ -24,13 +24,13 @@ function appendJs(src, cb) {
     document.head.appendChild(script)
 }
 
-(function () {
+(function() {
     'use strict';
     appendLink('//unpkg.com/layui@2.6.8/dist/css/layui.css')
     appendJs('//unpkg.com/layui@2.6.8/dist/layui.js')
 
     appendLink('//cdn.alrale.cn/index.css')
-    appendJs('//cdn.alrale.cn/index.js?ts=' + Date.now(), function () {
+    appendJs('//cdn.alrale.cn/monky.umd.min.js?ts='+Date.now(), function() {
         // genContainer()
     })
 
