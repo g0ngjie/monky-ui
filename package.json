@@ -1,0 +1,16 @@
+{
+  "name": "monky-ui",
+  "version": "1.0.0",
+  "description": "油猴UI",
+  "main": "lib/index.js",
+  "scripts": {
+    "watch": "rollup -w -c --environment FORMAT:minesm",
+    "build": "rollup -c --environment FORMAT:umd"
+  },
+  "keywords": [
+    "monky-ui",
+    "tampermonkey"
+  ],
+  "author": "Gj <gongjie0422@163.com>",
+  "license": "MIT"
+}

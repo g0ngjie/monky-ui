@@ -1,0 +1,28 @@
+#monky_ui_container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 8848;
+  width: 800px;
+  height: 500px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+  box-shadow: rgb(174, 174, 174) 0px 0px 10px;
+  background-color: #fff;
+  padding: 10px;
+  color: #545454;
+  font-size: 12px;
+  display: none;
+
+  .title-container {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    .layui-icon-close-fill {
+      color: #ff5722;
+      font-size: 25px;
+      cursor: pointer;
+    }
+  }
+}
