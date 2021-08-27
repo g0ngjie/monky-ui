@@ -5,7 +5,7 @@ const uglify = require('rollup-plugin-uglify').uglify;
 const merge = require('lodash.merge');
 const pkg = require('./package.json');
 
-const extensions = ['.js', '.ts'];
+const extensions = ['.js'];
 
 const resolve = function (...args) {
   return path.resolve(__dirname, ...args);
@@ -37,7 +37,7 @@ const mergeConfig = jobs[process.env.FORMAT || 'esm'];
 
 module.exports = merge(
   {
-    input: resolve('./src/index.ts'),
+    input: resolve('./src/index.js'),
     output: {},
     plugins: [
       nodeResolve({
