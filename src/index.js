@@ -59,14 +59,14 @@ function showContainer(bool = true) {
 }
 
 function getElement(ele, params = {}) {
-    const div = document.createElement(ele)
+    const dom = document.createElement(ele)
     for (const key in params) {
         if (Object.hasOwnProperty.call(params, key)) {
             const value = params[key];
-            div[key] = value
+            dom[key] = value
         }
     }
-    return div
+    return dom
 }
 
 /***************************************** API ******************************************** */
@@ -93,4 +93,16 @@ export default class Container {
         icon.onclick = () => showContainer(false)
         return this
     }
+
+    /**生成浮块 */
+    static setFloatBlock() {
+        let show = false
+        const floatBlock = document.getElementById('monky_ui_float_block')
+        floatBlock.onclick = function () {
+            show = !show
+            showContainer(show)
+        }
+        return this
+    }
+
 }
