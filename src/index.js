@@ -1,4 +1,22 @@
 
+class UIStore {
+    /**
+     * 获取存储空间
+     * 油猴 | 浏览器
+     */
+    static getStore(key) {
+        // 优先判断油猴
+        if (window.GM_getValue) return window.GM_getValue(key)
+        else return window.localStorage.getItem(key)
+    }
+
+    static setStore(key, value) {
+        if (window.GM_getValue) return window.GM_setValue(key, value)
+        else return window.localStorage.setItem(key, value)
+    }
+}
+
+
 function appendLink(src, cb) {
     const link = document.createElement('link')
     link.href = src
@@ -39,10 +57,6 @@ function showContainer(bool = true) {
         container.style.display = 'none'
     }
 }
-customEveltListener(function (type) {
-    if (type === 'show') showContainer()
-    if (type === 'hide') showContainer(false)
-})
 
 function getElement(ele, params = {}) {
     const div = document.createElement(ele)
@@ -55,17 +69,28 @@ function getElement(ele, params = {}) {
     return div
 }
 
-/**生成容器 */
-function genContainer() {
+/***************************************** API ******************************************** */
 
-    const containerDiv = getElement('div', { id: 'monky_ui_container' })
-    const titleContainer = getElement('div', { className: 'title-container' })
-    const icon = getElement('i', { className: 'layui-icon layui-icon-close-fill' })
-    titleContainer.appendChild(icon)
-    containerDiv.appendChild(titleContainer)
-    document.body.appendChild(containerDiv)
-    /**主容器关闭 */
-    icon.onclick = () => showContainer(false)
+export default class Container {
+
+    static setKeyEvent() {
+        customEveltListener(function (type) {
+            if (type === 'show') showContainer()
+            if (type === 'hide') showContainer(false)
+        })
+        return this
+    }
+
+    /**生成容器 */
+    static setContainer() {
+        const containerDiv = getElement('div', { id: 'monky_ui_container' })
+        const titleContainer = getElement('div', { className: 'title-container' })
+        const icon = getElement('i', { className: 'layui-icon layui-icon-close-fill' })
+        titleContainer.appendChild(icon)
+        containerDiv.appendChild(titleContainer)
+        document.body.appendChild(containerDiv)
+        /**主容器关闭 */
+        icon.onclick = () => showContainer(false)
+        return this
+    }
 }
-
-genContainer()

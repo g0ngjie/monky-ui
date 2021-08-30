@@ -22,7 +22,11 @@
 
     <!-- 引入 layui.js 的 <script> 标签最好放置在 html 末尾 -->
     <script src="layui/layui.js"></script>
-    <script src="./lib/index.js"></script>
+    <script src="./lib/monky.umd.js"></script>
+    <script>
+        monky.setKeyEvent()
+            .setContainer()
+    </script>
 </body>
 
 </html>
