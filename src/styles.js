@@ -30,3 +30,7 @@ export const layuiIconCloseFill = `
     color: #ff5722;
     font-size: 25px;
     cursor: pointer;`
+
+export function addStyle(target, styles) {
+    target.style.styleSheet.cssText = styles
+}
