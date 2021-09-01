@@ -28,7 +28,7 @@
 }
 
 // 浮块
-#monky_ui_float_block {
+#monky_ui_fixed_block {
   position: fixed;
   z-index: 8848;
   left: 0;
@@ -38,4 +38,29 @@
   background-color: #545454;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
+}
+
+// 固定按钮
+#monky_ui_fixed_button {
+  position: fixed;
+  z-index: 8847;
+  left: 0;
+  top: 100px;
+  width: 30px;
+  height: 30px;
+  background-color: #009688;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  transform: translateX(-25px);
+  transition: all 0.1s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    transform: translateX(0);
+  }
+  .layui-icon-slider {
+    color: #fff;
+    font-size: 20px;
+  }
 }
