@@ -27,18 +27,21 @@ function appendJs(src, cb) {
     script.onload = cb
 }
 
-(function() {
+(function () {
     'use strict';
 
-    appendLink('//unpkg.com/layui@2.6.8/dist/css/layui.css')
-
-    appendLink('//cdn.alrale.cn/monky.css')
-    const env = 'pro'
+    const env = 'dev'
     const jsConf = {
         dev: 'http://localhost:8849/monky.umd.js?ts=',
         pro: 'http://cdn.alrale.cn/monky.umd.min.js?ts='
     }
-    appendJs(jsConf[env]+Date.now(), () => {
+
+    const cssConf = {
+        dev: 'http://localhost:8849/monky.css',
+        pro: 'http://cdn.alrale.cn/monky.css'
+    }
+    appendLink(cssConf[env])
+    appendJs(jsConf[env] + Date.now(), () => {
         monky.setKeyEvent()
             .setContainer()
             .setFixedButton()

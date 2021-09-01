@@ -19,10 +19,15 @@
     height: 20px;
     display: flex;
     justify-content: flex-end;
-    .layui-icon-close-fill {
-      color: #ff5722;
-      font-size: 25px;
+    .icon-close {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #ff5722;
       cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -46,12 +51,12 @@
   z-index: 8847;
   left: 0;
   top: 100px;
-  width: 30px;
+  width: 15px;
   height: 30px;
   background-color: #009688;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
-  transform: translateX(-25px);
+  transform: translateX(-10px);
   transition: all 0.1s ease-in;
   display: flex;
   justify-content: center;

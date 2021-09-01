@@ -27,10 +27,21 @@
           justify-content: flex-end;
 }
 
-#monky_ui_container .title-container .layui-icon-close-fill {
-  color: #ff5722;
-  font-size: 25px;
+#monky_ui_container .title-container .icon-close {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ff5722;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #monky_ui_fixed_block {
@@ -50,13 +61,13 @@
   z-index: 8847;
   left: 0;
   top: 100px;
-  width: 30px;
+  width: 15px;
   height: 30px;
   background-color: #009688;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
-  -webkit-transform: translateX(-25px);
-          transform: translateX(-25px);
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
   display: -webkit-box;

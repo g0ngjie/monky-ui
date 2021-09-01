@@ -69,7 +69,7 @@ export default class Container {
     static setContainer() {
         const containerDiv = getElement('div', { id: 'monky_ui_container' })
         const titleContainer = getElement('div', { className: 'title-container' })
-        const icon = getElement('i', { className: 'layui-icon layui-icon-close-fill' })
+        const icon = getElement('div', { className: 'icon-close' })
         titleContainer.appendChild(icon)
         containerDiv.appendChild(titleContainer)
         document.body.appendChild(containerDiv)
@@ -93,11 +93,9 @@ export default class Container {
     /**生成按钮 */
     static setFixedButton() {
         const fixedButton = getElement('div', { id: 'monky_ui_fixed_button' })
-        const icon = getElement('i', { className: 'layui-icon layui-icon-slider' })
-        fixedButton.appendChild(icon)
         document.body.appendChild(fixedButton)
-        /**主容器关闭 */
-        icon.onclick = () => showContainer()
+        /**主容器打开 */
+        fixedButton.onclick = () => showContainer()
         return this
     }
 }
