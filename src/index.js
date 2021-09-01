@@ -16,22 +16,6 @@ class UIStore {
     }
 }
 
-
-function appendLink(src, cb) {
-    const link = document.createElement('link')
-    link.href = src
-    link.rel = 'stylesheet'
-    link.onload = cb
-    document.head.appendChild(link)
-}
-
-function appendJs(src, cb) {
-    const script = document.createElement('script')
-    script.src = src
-    script.onload = cb
-    document.head.appendChild(script)
-}
-
 function customEveltListener(callback) {
     document.onkeydown = function (e) {
         e.preventDefault()
