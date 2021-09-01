@@ -4,9 +4,12 @@
 // @version      0.1
 // @description  油猴UI工具
 // @author       Gj <gongjie0422@163.com>
-// @match        https://*/*
-// @icon         https://www.google.com/s2/favicons?domain=cnblogs.com
-// @grant        none
+// @match        *://*/*
+// @icon         https://cdn.alrale.cn/monky-ui.png
+
+// @grant        GM_setValue
+// @grant        GM_getValue
+
 // ==/UserScript==
 
 function appendLink(src, cb) {
@@ -20,35 +23,26 @@ function appendLink(src, cb) {
 function appendJs(src, cb) {
     const script = document.createElement('script')
     script.src = src
-    script.onload = cb
     document.head.appendChild(script)
+    script.onload = cb
 }
 
 (function() {
     'use strict';
-    appendLink('//unpkg.com/layui@2.6.8/dist/css/layui.css')
-    appendJs('//unpkg.com/layui@2.6.8/dist/layui.js')
 
-    appendLink('//cdn.alrale.cn/index.css')
-    appendJs('//cdn.alrale.cn/monky.umd.min.js?ts='+Date.now(), function() {
-        // genContainer()
+    appendLink('//unpkg.com/layui@2.6.8/dist/css/layui.css')
+
+    appendLink('//cdn.alrale.cn/monky.css')
+    const env = 'pro'
+    const jsConf = {
+        dev: 'http://localhost:8849/monky.umd.js?ts=',
+        pro: 'http://cdn.alrale.cn/monky.umd.min.js?ts='
+    }
+    appendJs(jsConf[env]+Date.now(), () => {
+        monky.setKeyEvent()
+            .setContainer()
+            .setFixedButton()
     })
 
-    /**生成容器 */
-    function genContainer() {
 
-        const containerDiv = getElement('div', { id: 'monky_ui_container' })
-        containerDiv.id = 'monky_ui_container'
-        const titleContainer = getElement('div', { className: 'title-container' })
-
-        const icon = getElement('i', { className: 'layui-icon layui-icon-close-fill' })
-        titleContainer.appendChild(icon)
-        containerDiv.appendChild(titleContainer)
-        document.body.appendChild(containerDiv)
-        /**主容器关闭 */
-        icon.onclick = () => showContainer(false)
-    }
-
-
-    // Your code here...
 })();
